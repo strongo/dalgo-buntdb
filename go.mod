@@ -1,6 +1,6 @@
 module github.com/strongo/dalgo2buntdb
 
-go 1.17
+go 1.19
 
 require (
 	github.com/strongo/dalgo v0.0.13
