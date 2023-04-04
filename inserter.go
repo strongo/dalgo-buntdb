@@ -18,28 +18,30 @@ func (dtb database) Insert(ctx context.Context, record dal.Record, opts ...dal.I
 	})
 }
 
-func (t transaction) Insert(ctx context.Context, record dal.Record, opts ...dal.InsertOption) error {
+func (t transaction) Insert(ctx context.Context, record dal.Record, opts ...dal.InsertOption) (err error) {
 	options := dal.NewInsertOptions(opts...)
-	generateID := options.IDGenerator()
-	if generateID == nil {
-		return t.insert(record)
+
+	if generateID := options.IDGenerator(); generateID != nil {
+		err = t.insertWithGenerator(ctx, generateID, record)
+	} else {
+		err = t.insert(record)
 	}
-	return t.insertWithGenerator(ctx, generateID, record)
+	return err
 }
 
-func (t transaction) insertWithGenerator(ctx context.Context, generateID dal.IDGenerator, record dal.Record) error {
+func (t transaction) insertWithGenerator(ctx context.Context, generateID dal.IDGenerator, record dal.Record) (err error) {
 	for i := 0; i < 10; i++ {
-		if err := generateID(ctx, record); err != nil {
-			return err
+		if err = generateID(ctx, record); err != nil {
+			break
 		}
-		if err := t.insert(record); err != nil {
+		if err = t.insert(record); err != nil {
 			if err == ErrKeyAlreadyExists {
 				continue
 			}
-			return err
+			break
 		}
 	}
-	return nil
+	return err
 }
 
 func (t transaction) insert(record dal.Record) error {

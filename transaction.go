@@ -8,15 +8,17 @@ import (
 
 func (dtb database) RunReadonlyTransaction(ctx context.Context, f dal.ROTxWorker, options ...dal.TransactionOption) error {
 	return dtb.db.View(func(tx *buntdb.Tx) error {
-		return f(ctx, transaction{tx: tx})
+		return f(ctx, transaction{tx: tx, options: dal.NewTransactionOptions(options...)})
 	})
 }
 
 func (dtb database) RunReadwriteTransaction(ctx context.Context, f dal.RWTxWorker, options ...dal.TransactionOption) error {
 	return dtb.db.Update(func(tx *buntdb.Tx) error {
-		return f(ctx, transaction{tx: tx})
+		return f(ctx, transaction{tx: tx, options: dal.NewTransactionOptions(options...)})
 	})
 }
+
+var _ dal.ReadwriteTransaction = (*transaction)(nil)
 
 type transaction struct {
 	tx      *buntdb.Tx
@@ -27,12 +29,10 @@ func (t transaction) Options() dal.TransactionOptions {
 	return t.options
 }
 
-func (t transaction) Upsert(context.Context, dal.Record) error {
-	panic("implement me")
+func (t transaction) Upsert(ctx context.Context, record dal.Record) error {
+	return t.Set(ctx, record)
 }
 
 func (t transaction) Select(context.Context, dal.Select) (dal.Reader, error) {
-	panic("implement me")
+	return nil, errNotSupportedYet // TODO(help-wanted): needs implementation
 }
-
-var _ dal.Transaction = (*transaction)(nil)
