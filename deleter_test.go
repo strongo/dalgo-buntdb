@@ -27,7 +27,7 @@ func TestDeleter_Delete(t *testing.T) {
 
 	ctx := context.Background()
 
-	err = ddb.Delete(ctx, dal.NewKeyWithStrID("Test", "t1"))
+	err = ddb.Delete(ctx, dal.NewKeyWithID("Test", "t1"))
 	if err != nil {
 		t.Errorf("failed to performa delete operation: %v", err)
 	}

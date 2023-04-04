@@ -26,7 +26,7 @@ func TestGetter_Get(t *testing.T) {
 
 	ddb := NewDatabase(db)
 
-	key := dal.NewKeyWithStrID("TestKind", "test_1")
+	key := dal.NewKeyWithID("TestKind", "test_1")
 	data := new(testKind)
 	record := dal.NewRecordWithData(key, data)
 	err := ddb.Get(ctx, record)
