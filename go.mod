@@ -1,16 +1,15 @@
-module github.com/strongo/dalgo2buntdb
+module github.com/dal-go/dalgo2buntdb
 
 go 1.20
 
 require (
-	github.com/strongo/dalgo v0.1.0
+	github.com/dal-go/dalgo v0.2.2
 	github.com/tidwall/buntdb v1.2.10
 	golang.org/x/lint v0.0.0-20210508222113-6edffad5e616
 )
 
 require (
 	github.com/davecgh/go-spew v1.1.0 // indirect
-	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/stretchr/testify v1.6.0 // indirect
 	github.com/strongo/random v0.0.1 // indirect

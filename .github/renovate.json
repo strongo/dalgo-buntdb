@@ -4,31 +4,6 @@
   ],
   "packageRules": [
     {
-      "matchPackagePatterns": [
-        "strongo/dalgo"
-      ],
-      "matchUpdateTypes": [
-        "minor",
-        "patch",
-        "pin"
-      ],
-      "automerge": true,
-      "automergeType": "branch"
-    },
-    {
-      "matchPackagePatterns": [
-        "strongo"
-      ],
-      "matchUpdateTypes": [
-        "minor",
-        "patch",
-        "pin",
-        "digest"
-      ],
-      "automerge": true,
-      "automergeType": "branch"
-    },
-    {
       "matchUpdateTypes": [
         "minor",
         "patch"

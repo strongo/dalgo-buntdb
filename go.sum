@@ -1,14 +1,12 @@
+github.com/dal-go/dalgo v0.2.2 h1:xgmUJ5hSXnjo0Zx9UOXUjvNoimmM0kLMUqYnK5Cl2b0=
+github.com/dal-go/dalgo v0.2.2/go.mod h1:Ov7wCe2kOqIb+IKu3RKM+a3tGpg4foblLdkuyadoEwE=
 github.com/davecgh/go-spew v1.1.0 h1:ZDRjVQ15GmhC3fiQ8ni8+OwkZQO4DARzQgrnXU1Liz8=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
-github.com/pkg/errors v0.9.1 h1:FEBLx1zS214owpjy7qsBeixbURkuhQAwrK5UwLGTwt4=
-github.com/pkg/errors v0.9.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/testify v1.6.0 h1:jlIyCplCJFULU/01vCkhKuTyc3OorI3bJFuw6obfgho=
 github.com/stretchr/testify v1.6.0/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
-github.com/strongo/dalgo v0.1.0 h1:EQEUqZaG/uzlvBPpwuHo1oy0/IAae+pIn1FOAat4jj4=
-github.com/strongo/dalgo v0.1.0/go.mod h1:TJ+6LPbGFy8oS3yWmPvG2AMY2wNK4qYBCXf45vSVYCw=
 github.com/strongo/random v0.0.1 h1:OZHJBb/3uEa7OX8L2Dv2pLnSeewRmXMyTACoeto6O8I=
 github.com/strongo/random v0.0.1/go.mod h1:/pSI+SjBNLBkjljNtVdYr6ERddA+LqSa87o0/s+9iuU=
 github.com/strongo/validation v0.0.1 h1:kBMqVLa73nT6FaWrMX5aPKbM4hcNqe6A519MoRXhLUY=

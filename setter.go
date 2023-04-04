@@ -3,7 +3,7 @@ package dalgo2buntdb
 import (
 	"context"
 	"encoding/json"
-	"github.com/strongo/dalgo/dal"
+	"github.com/dal-go/dalgo/dal"
 	"github.com/tidwall/buntdb"
 )
 

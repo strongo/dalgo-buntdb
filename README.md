@@ -1,11 +1,11 @@
-# Go package: [`github.com/strongo/dalgo2buntdb`](https://github.com/strongo/dalgo2buntdb)
+# Go package: [`github.com/dal-go/dalgo2buntdb`](https://github.com/dal-go/dalgo2buntdb)
 
-[![Lint, Vet, Build, Test](https://github.com/strongo/dalgo2buntdb/actions/workflows/ci.yml/badge.svg)](https://github.com/strongo/dalgo2buntdb/actions/workflows/ci.yml)
-[![Go Report Card](https://goreportcard.com/badge/github.com/strongo/dalgo2buntdb)](https://goreportcard.com/report/github.com/strongo/dalgo2buntdb)
-[![GoDoc](https://godoc.org/github.com/strongo/dalgo2buntdb?status.svg)](https://godoc.org/github.com/strongo/dalgo2buntdb)
+[![Lint, Vet, Build, Test](https://github.com/dal-go/dalgo2buntdb/actions/workflows/ci.yml/badge.svg)](https://github.com/dal-go/dalgo2buntdb/actions/workflows/ci.yml)
+[![Go Report Card](https://goreportcard.com/badge/github.com/dal-go/dalgo2buntdb)](https://goreportcard.com/report/github.com/dal-go/dalgo2buntdb)
+[![GoDoc](https://godoc.org/github.com/dal-go/dalgo2buntdb?status.svg)](https://godoc.org/github.com/dal-go/dalgo2buntdb)
 
 Bridge to [BuntDB](https://github.com/tidwall/buntdb) API
-for [`github.com/strongo/dalgo`](https://github.com/strongo/dalgo) interface.
+for [`github.com/dal-go/dalgo`](https://github.com/dal-go/dalgo) interface.
 
 ## What is BuntDB?
 
@@ -15,12 +15,12 @@ need a dependable database and favor speed over data size.
 
 ## What is `DALgo`?
 
-[`DALgo`](https://github.com/strongo/dalgo) is a Database Abstraction Layer (in) Go (language).
+[`DALgo`](https://github.com/dal-go/dalgo) is a Database Abstraction Layer (in) Go (language).
 
 ## End-to-End testing
 
 This package is covered by end-to-end tests
-from [`github.com/strongo/dalgo-end2end-tests`](https://github.com/strongo/dalgo-end2end-tests).
+from [`github.com/dal-go/dalgo-end2end-tests`](https://github.com/dal-go/dalgo-end2end-tests).
 
 ## License
 

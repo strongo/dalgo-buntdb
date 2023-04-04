@@ -1,7 +1,7 @@
 package dalgo2buntdb
 
 import (
-	"github.com/strongo/dalgo/end2end"
+	"github.com/dal-go/dalgo/end2end"
 	"testing"
 )
 
