@@ -5,7 +5,7 @@ go 1.20
 require (
 	github.com/dal-go/dalgo v0.2.5
 	github.com/dal-go/dalgo-end2end-tests v0.0.7
-	github.com/tidwall/buntdb v1.2.10
+	github.com/tidwall/buntdb v1.3.0
 )
 
 require (
