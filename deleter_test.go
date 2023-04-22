@@ -3,12 +3,13 @@ package dalgo2buntdb
 import (
 	"context"
 	"github.com/dal-go/dalgo/dal"
+	"github.com/dal-go/dalgo2buntdb/testing4buntdb"
 	"github.com/tidwall/buntdb"
 	"testing"
 )
 
 func TestDeleter_Delete(t *testing.T) {
-	db, err := buntdb.Open(":MemoryPath:")
+	db, err := buntdb.Open(testing4buntdb.MemoryPath)
 	if err != nil {
 		t.Fatal(err)
 	}
