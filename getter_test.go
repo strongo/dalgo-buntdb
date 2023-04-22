@@ -3,6 +3,7 @@ package dalgo2buntdb
 import (
 	"context"
 	"github.com/dal-go/dalgo/dal"
+	"github.com/dal-go/dalgo2buntdb/testing4buntdb"
 	"github.com/tidwall/buntdb"
 	"testing"
 )
@@ -16,7 +17,7 @@ func TestGetter_Get(t *testing.T) {
 	ctx := context.Background()
 
 	const k = "TestKind/test_1"
-	db := openInMemoryDB(t)
+	db := testing4buntdb.OpenInMemoryDB(t)
 	if err := db.Update(func(tx *buntdb.Tx) error {
 		_, _, err := tx.Set(k, `{"Str":"s1", "Int":1}`, nil)
 		return err

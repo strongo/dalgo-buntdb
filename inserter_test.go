@@ -3,14 +3,13 @@ package dalgo2buntdb
 import (
 	"context"
 	"github.com/dal-go/dalgo/dal"
+	"github.com/dal-go/dalgo2buntdb/testing4buntdb"
 	"github.com/tidwall/buntdb"
 	"testing"
 )
 
-const memory = ":memory:"
-
 func TestInserter_Insert(t *testing.T) {
-	bdb, err := buntdb.Open(memory)
+	bdb, err := buntdb.Open(testing4buntdb.MemoryPath)
 	if err != nil {
 		t.Fatalf("failed to open DB: %v", err)
 	}

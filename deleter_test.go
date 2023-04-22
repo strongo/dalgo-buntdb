@@ -8,7 +8,7 @@ import (
 )
 
 func TestDeleter_Delete(t *testing.T) {
-	db, err := buntdb.Open(":memory:")
+	db, err := buntdb.Open(":MemoryPath:")
 	if err != nil {
 		t.Fatal(err)
 	}
