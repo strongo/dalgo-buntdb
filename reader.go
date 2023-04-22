@@ -8,7 +8,7 @@ import (
 var _ dal.Reader = (*buntdbReader)(nil)
 
 type buntdbReader struct {
-	i     int // iteration
+	//i     int // iteration
 	query dal.Query
 	tx    *buntdb.Tx
 	//iterator *datastore.Iterator
