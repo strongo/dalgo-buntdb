@@ -2,7 +2,6 @@ package dalgo2buntdb
 
 import (
 	"context"
-	"fmt"
 	"github.com/dal-go/dalgo/dal"
 	"github.com/tidwall/buntdb"
 )
@@ -15,13 +14,14 @@ func (dtb database) RunReadonlyTransaction(ctx context.Context, f dal.ROTxWorker
 
 func (dtb database) RunReadwriteTransaction(ctx context.Context, f dal.RWTxWorker, options ...dal.TransactionOption) error {
 	return dtb.db.Update(func(tx *buntdb.Tx) (err error) {
-		err = f(ctx, transaction{tx: tx, options: dal.NewTransactionOptions(options...)})
-		if err != nil {
-			if rollbackErr := tx.Rollback(); rollbackErr != nil {
-				return fmt.Errorf("failed to rollbacktransaction: %v: original error: %w", rollbackErr, err)
-			}
-		}
-		return nil //tx.Commit()
+		return f(ctx, transaction{tx: tx, options: dal.NewTransactionOptions(options...)})
+		// NOTE: managed tx rollback not allowed by buntdb
+		//if err != nil {
+		//	if rollbackErr := tx.Rollback(); rollbackErr != nil {
+		//		return fmt.Errorf("failed to rollbacktransaction: %v: original error: %w", rollbackErr, err)
+		//	}
+		//}
+		//return tx.Commit()
 	})
 }
 
