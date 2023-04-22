@@ -8,6 +8,16 @@ import (
 
 type database struct {
 	db *buntdb.DB
+	dal.QueryExecutor
+}
+
+func (dtb database) ID() string {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (dtb database) Client() dal.ClientInfo {
+	return dal.NewClientInfo("buntdb", "v1.2.10")
 }
 
 var _ dal.Database = (*database)(nil)
@@ -17,11 +27,23 @@ func NewDatabase(db *buntdb.DB) dal.Database {
 	if db == nil {
 		panic("db is a required parameter, got nil")
 	}
-	return database{
-		db: db,
+	var database database
+	var getReader = func(ctx context.Context, query dal.Query) (dal.Reader, error) {
+		tx, err := db.Begin(false)
+		if err != nil {
+			return nil, err
+		}
+		return getReader(tx, query)
 	}
+	database.db = db
+	database.QueryExecutor = dal.NewQueryExecutor(getReader)
+	return database
 }
 
 func (dtb database) Upsert(ctx context.Context, record dal.Record) error {
-	panic("implement me")
+	return dal.ErrNotImplementedYet
+}
+
+func getReader(buntdbTx *buntdb.Tx, query dal.Query) (buntdbReader, error) {
+	return buntdbReader{query: query, tx: buntdbTx}, nil
 }

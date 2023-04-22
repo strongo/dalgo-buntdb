@@ -25,14 +25,27 @@ type transaction struct {
 	options dal.TransactionOptions
 }
 
+func (t transaction) QueryReader(c context.Context, query dal.Query) (dal.Reader, error) {
+	return getReader(t.tx, query)
+}
+
+func (t transaction) QueryAllRecords(ctx context.Context, query dal.Query) (records []dal.Record, err error) {
+	var reader buntdbReader
+	if reader, err = getReader(t.tx, query); err != nil {
+		return
+	}
+	limit := query.Limit()
+	return dal.SelectAllRecords(reader, limit)
+}
+
+func (t transaction) ID() string {
+	return ""
+}
+
 func (t transaction) Options() dal.TransactionOptions {
 	return t.options
 }
 
 func (t transaction) Upsert(ctx context.Context, record dal.Record) error {
 	return t.Set(ctx, record)
-}
-
-func (t transaction) Select(context.Context, dal.Select) (dal.Reader, error) {
-	return nil, errNotSupportedYet // TODO(help-wanted): needs implementation
 }
