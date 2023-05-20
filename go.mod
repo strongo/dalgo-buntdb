@@ -3,8 +3,8 @@ module github.com/dal-go/dalgo2buntdb
 go 1.20
 
 require (
-	github.com/dal-go/dalgo v0.2.28
-	github.com/dal-go/dalgo-end2end-tests v0.0.19
+	github.com/dal-go/dalgo v0.2.30
+	github.com/dal-go/dalgo-end2end-tests v0.0.21
 	github.com/stretchr/testify v1.8.3
 	github.com/tidwall/buntdb v1.3.0
 )
@@ -16,7 +16,7 @@ require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/strongo/random v0.0.1 // indirect
-	github.com/strongo/validation v0.0.1 // indirect
+	github.com/strongo/validation v0.0.5 // indirect
 	github.com/tidwall/btree v1.6.0 // indirect
 	github.com/tidwall/gjson v1.14.4 // indirect
 	github.com/tidwall/grect v0.1.4 // indirect
