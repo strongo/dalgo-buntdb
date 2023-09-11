@@ -17,7 +17,6 @@ jobs:
       contents: write
     uses: strongo/go-ci-action/.github/workflows/workflow.yml@main
     with:
-      install-firebase-tools: true
       GOOGLE_APPLICATION_CREDENTIALS: GOOGLE_APPLICATION_CREDENTIALS.json
     secrets:
       FIREBASE_PROJECT_ID: ${{ secrets.DALGO_E2E_PROJECT_ID }}
