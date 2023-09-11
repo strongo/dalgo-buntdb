@@ -28,12 +28,13 @@ func (t transaction) Get(_ context.Context, record dal.Record) error {
 	if err == nil {
 		record.SetError(nil)
 	} else {
-		if err == buntdb.ErrNotFound {
+		if errors.Is(err, buntdb.ErrNotFound) {
 			err = dal.NewErrNotFoundByKey(key, err)
 			record.SetError(err)
 		}
 		return err
 	}
+	record.SetError(nil)
 	data := record.Data()
 	if data == nil {
 		record.SetError(errors.New("no target data object has been provided for unmarshalling"))
@@ -53,7 +54,7 @@ func (t transaction) GetMulti(ctx context.Context, records []dal.Record) error {
 		key := record.Key()
 		keyPath := key.String()
 		s, err := t.tx.Get(keyPath)
-		if err == buntdb.ErrNotFound {
+		if errors.Is(err, buntdb.ErrNotFound) {
 			record.SetError(dal.NewErrNotFoundByKey(key, err))
 			continue
 		} else if err != nil {
@@ -61,7 +62,6 @@ func (t transaction) GetMulti(ctx context.Context, records []dal.Record) error {
 			return err
 		}
 		record.SetError(nil)
-
 		data := record.Data()
 		if data == nil {
 			panic("record.Data() returned null")

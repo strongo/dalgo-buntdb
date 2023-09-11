@@ -19,10 +19,12 @@ func (dtb database) SetMulti(ctx context.Context, records []dal.Record) error {
 	})
 }
 
-func (t transaction) Set(ctx context.Context, record dal.Record) error {
+func (t transaction) Set(_ context.Context, record dal.Record) error {
 	key := record.Key()
 	k := key.String()
-	s, err := json.Marshal(record.Data())
+	record.SetError(nil)
+	data := record.Data()
+	s, err := json.Marshal(data)
 	if err != nil {
 		return err
 	}

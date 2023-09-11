@@ -3,6 +3,7 @@ package dalgo2buntdb
 import (
 	"context"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"github.com/dal-go/dalgo/dal"
 	"github.com/tidwall/buntdb"
@@ -62,7 +63,7 @@ func (t transaction) update(
 	k := key.String()
 	s, err := t.tx.Get(k)
 	if err != nil {
-		if err == buntdb.ErrNotFound {
+		if errors.Is(err, buntdb.ErrNotFound) {
 			err = dal.NewErrNotFoundByKey(key, err)
 		}
 		return err

@@ -16,14 +16,14 @@ func (dtb database) ID() string {
 	panic("implement me")
 }
 
-func (dtb database) Client() dal.ClientInfo {
-	return dal.NewClientInfo("buntdb", "v1.2.10")
+func (dtb database) Adapter() dal.Adapter {
+	return dal.NewAdapter("buntdb", "v1.2.10")
 }
 
-var _ dal.Database = (*database)(nil)
+var _ dal.DB = (*database)(nil)
 
 // NewDatabase creates a new instance of DALgo adapter for BungDB
-func NewDatabase(db *buntdb.DB) dal.Database {
+func NewDatabase(db *buntdb.DB) dal.DB {
 	if db == nil {
 		panic("db is a required parameter, got nil")
 	}

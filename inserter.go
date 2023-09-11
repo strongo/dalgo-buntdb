@@ -35,7 +35,7 @@ func (t transaction) insertWithGenerator(ctx context.Context, generateID dal.IDG
 			break
 		}
 		if err = t.insert(record); err != nil {
-			if err == ErrKeyAlreadyExists {
+			if errors.Is(err, ErrKeyAlreadyExists) {
 				continue
 			}
 			break
@@ -49,10 +49,12 @@ func (t transaction) insert(record dal.Record) error {
 	k := key.String()
 	if _, err := t.tx.Get(k); err == nil {
 		return ErrKeyAlreadyExists
-	} else if err != buntdb.ErrNotFound {
+	} else if !errors.Is(err, buntdb.ErrNotFound) {
 		return err
 	}
-	s, err := json.Marshal(record.Data())
+	record.SetError(nil)
+	data := record.Data()
+	s, err := json.Marshal(data)
 	if err != nil {
 		return err
 	}

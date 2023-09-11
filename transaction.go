@@ -41,7 +41,7 @@ func (t transaction) QueryAllRecords(ctx context.Context, query dal.Query) (reco
 	if reader, err = getReader(t.tx, query); err != nil {
 		return
 	}
-	limit := query.Limit()
+	limit := dal.WithLimit(query.Limit())
 	return dal.SelectAllRecords(reader, limit)
 }
 
