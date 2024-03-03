@@ -5,9 +5,9 @@ go 1.21
 toolchain go1.21.4
 
 require (
-	github.com/dal-go/dalgo v0.12.0
-	github.com/dal-go/dalgo-end2end-tests v0.0.35
-	github.com/stretchr/testify v1.8.4
+	github.com/dal-go/dalgo v0.12.1
+	github.com/dal-go/dalgo-end2end-tests v0.0.36
+	github.com/stretchr/testify v1.9.0
 	github.com/tidwall/buntdb v1.3.0
 )
 
