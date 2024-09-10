@@ -1,14 +1,14 @@
 module github.com/dal-go/dalgo2buntdb
 
-go 1.21
+go 1.22
 
-toolchain go1.22.6
+toolchain go1.23.0
 
 require (
-	github.com/dal-go/dalgo v0.12.1
-	github.com/dal-go/dalgo-end2end-tests v0.0.36
+	github.com/dal-go/dalgo v0.13.1
+	github.com/dal-go/dalgo-end2end-tests v0.0.39
 	github.com/stretchr/testify v1.9.0
-	github.com/tidwall/buntdb v1.3.1
+	github.com/tidwall/buntdb v1.3.2
 )
 
 //replace github.com/dal-go/dalgo => ../dalgo
@@ -18,9 +18,9 @@ require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/strongo/random v0.0.1 // indirect
-	github.com/strongo/validation v0.0.6 // indirect
-	github.com/tidwall/btree v1.6.0 // indirect
-	github.com/tidwall/gjson v1.14.4 // indirect
+	github.com/strongo/validation v0.0.7 // indirect
+	github.com/tidwall/btree v1.7.0 // indirect
+	github.com/tidwall/gjson v1.17.3 // indirect
 	github.com/tidwall/grect v0.1.4 // indirect
 	github.com/tidwall/match v1.1.1 // indirect
 	github.com/tidwall/pretty v1.2.1 // indirect
