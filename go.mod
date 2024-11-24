@@ -7,7 +7,7 @@ toolchain go1.23.3
 require (
 	github.com/dal-go/dalgo v0.14.0
 	github.com/dal-go/dalgo-end2end-tests v0.0.41
-	github.com/stretchr/testify v1.9.0
+	github.com/stretchr/testify v1.10.0
 	github.com/tidwall/buntdb v1.3.2
 )
 
