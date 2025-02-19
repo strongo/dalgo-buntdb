@@ -5,8 +5,8 @@ go 1.22
 toolchain go1.24.0
 
 require (
-	github.com/dal-go/dalgo v0.16.1
-	github.com/dal-go/dalgo-end2end-tests v0.0.45
+	github.com/dal-go/dalgo v0.18.0
+	github.com/dal-go/dalgo-end2end-tests v0.0.46
 	github.com/stretchr/testify v1.10.0
 	github.com/tidwall/buntdb v1.3.2
 )
