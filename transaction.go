@@ -3,6 +3,7 @@ package dalgo2buntdb
 import (
 	"context"
 	"github.com/dal-go/dalgo/dal"
+	"github.com/dal-go/dalgo/update"
 	"github.com/tidwall/buntdb"
 )
 
@@ -30,6 +31,10 @@ var _ dal.ReadwriteTransaction = (*transaction)(nil)
 type transaction struct {
 	tx      *buntdb.Tx
 	options dal.TransactionOptions
+}
+
+func (t transaction) UpdateRecord(ctx context.Context, record dal.Record, updates []update.Update, preconditions ...dal.Precondition) error {
+	return t.Update(ctx, record.Key(), updates, preconditions...)
 }
 
 func (t transaction) QueryReader(c context.Context, query dal.Query) (dal.Reader, error) {
